@@ -10,9 +10,9 @@ const Featured = () => {
         heading={"Featured item"}
         subHeading={"Check it out"}
       ></SectionTitle>
-      <div className=" mt-10 flex justify-center items-center px-32 py-8 bg-slate-500 bg-opacity-60 text-white">
-        <img className="w-[500px]" src={featured} alt="" />
-        <div className="md:ml-10 ">
+      <div className=" mt-10 flex flex-col lg:flex-row justify-center items-center px-24 lg:px-32 py-8 bg-slate-500 bg-opacity-60 text-white">
+        <img className="lg:w-[500px]" src={featured} alt="" />
+        <div className="md:ml-10 mt-6 text-black ">
           <h2 className="font-semibold">March 20, 2023</h2>
           <h3 className="uppercase font-semibold">Where can I get some</h3>
           <br />
@@ -24,7 +24,7 @@ const Featured = () => {
             placeat ratione quod enim rem excepturi exercitationem temporibus
             tempora eos, vitae amet vero?
           </p>
-          <button className="btn btn-outline mt-10 border-0 border-b-4">
+          <button className="btn text-black btn-outline mt-10 border-0 border-b-4">
             View full menu
           </button>
         </div>

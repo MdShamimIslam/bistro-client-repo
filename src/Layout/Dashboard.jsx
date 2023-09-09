@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import {FaShoppingCart } from 'react-icons/fa';
 
 const Dashboard = () => {
   return (
@@ -14,7 +15,46 @@ const Dashboard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side ">
+        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+        <ul className="menu uppercase p-4 w-80 min-h-full bg-green-700 text-white">
+          <Link className="text-xl font-semibold text-orange-400 ml-4" to='/'>Bistro-Boss</Link>
+          <li>
+            <Link><i class="fa-solid fa-house"></i> User Home</Link>
+          </li>
+          <li>
+            <Link><i class="fa-solid fa-microchip"></i> reservation</Link>
+          </li>
+          <li>
+            <Link><i class="fa-regular fa-credit-card"></i> payment history</Link>
+          </li>
+          <li>
+            <Link to='/dashboard/myCart'><FaShoppingCart></FaShoppingCart> my cart</Link>
+          </li>
+          <li>
+            <Link><i class="fa-solid fa-puzzle-piece"></i> add review</Link>
+          </li>
+          <li>
+            <Link><i class="fa-solid fa-utensils"></i> my booking</Link>
+          </li>
+         
+          <div className="divider"></div>
+          <li>
+            <Link to='/'><i class="fa-solid fa-house"></i> Home</Link>
+          </li>
+          <li>
+            <Link to=''><i class="fa-solid fa-bars"></i>Menu</Link>
+          </li>
+          <li>
+            <Link to=''><i class="fa-solid fa-briefcase"></i> Order</Link>
+          </li>
+          <li>
+            <Link to=''><i class="fa-solid fa-envelope"></i> Contact</Link>
+          </li>
+          
+        </ul>
+      </div>
+      {/* <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu uppercase p-4 w-80 min-h-full bg-base-200 text-base-content">
           <Link className="text-lg font-semibold" to='/'>Bistro-Boss</Link>
@@ -48,7 +88,7 @@ const Dashboard = () => {
           </li>
           
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

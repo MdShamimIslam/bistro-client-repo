@@ -61,7 +61,7 @@ const Login = () => {
       <Helmet>
         <title>Bistro-boss || Login</title>
       </Helmet>
-      <div className="hero my-36 bg-base-200">
+      <div className="hero my-36">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
           <div className="text-center md:w-1/2 lg:text-left">
             <img src={loginImg} alt="" />
@@ -119,7 +119,7 @@ const Login = () => {
             </form>
             <p className="text-center mb-10">
               Create new Account ?{" "}
-              <Link className="font-semibold" to="/signUp">
+              <Link className="font-semibold text-orange-400" to="/signUp">
                 Sign Up
               </Link>
             </p>

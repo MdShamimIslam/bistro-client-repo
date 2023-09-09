@@ -42,9 +42,9 @@ const SignUp = () => {
       <Helmet>
         <title>Bistro-boss || Sign Up</title>
       </Helmet>
-      <div className="hero my-24 bg-base-200">
+      <div className="hero my-24">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
-          <div className="text-center md:w-1/2 lg:text-left">
+          <div className="text-center lg;w-3/4 md:w-1/2 lg:text-left">
             <img src={SignUpImg} alt="" />
           </div>
 
@@ -146,7 +146,7 @@ const SignUp = () => {
             </form>
             <p className="text-center mb-10">
               Already have an Account ?{" "}
-              <Link className="font-semibold" to="/login">
+              <Link className="font-semibold text-orange-400" to="/login">
                 Login
               </Link>
             </p>
