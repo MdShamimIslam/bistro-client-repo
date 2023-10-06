@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className="footer footer-center p-4  text-base-content">
+      <footer className="footer footer-center p-4 text-white">
         <div>
           <p>Copyright © 2023 - All right reserved by Muhammad Shamim Islam</p>
         </div>

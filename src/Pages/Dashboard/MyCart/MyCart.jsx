@@ -5,44 +5,36 @@ import SectionTitle from "../../../Components/SectionTitle";
 import Swal from "sweetalert2";
 
 const MyCart = () => {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
 
-const handleDelete = item =>{
-  Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      fetch(`http://localhost:5000/carts/${item._id}`,{
-        method:'DELETE'
-      })
-      .then(res => res.json())
-      .then(data => {
-        
-        // console.log(data);
-        // if(data.deletedCount > 0{
-        //   Swal.fire(
-        //     'Deleted!',
-        //     'Your file has been deleted.',
-        //     'success'
-        //   )
-        // })
-        
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You want to delete ${item.name}`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/carts/${item._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
       }
-      )
-      
-    }
-  })
-}
+    });
+  };
 
   return (
-    <div className="mt-10 w-full lg:ml-16">
+    <div className="mt-10 lg:w-full lg:ml-16">
       <Helmet>
         <title>Bistro-boss || MyCart</title>
       </Helmet>
@@ -53,7 +45,6 @@ const handleDelete = item =>{
 
       <div className="mt-12 text-xl font-semibold flex items-center justify-between bg-green-700 p-2 rounded ">
         <div>
-          
           <h3>Total items : {cart?.length}</h3>
         </div>
         <div>
@@ -89,8 +80,11 @@ const handleDelete = item =>{
                 <td>{item.name}</td>
                 <td>${item.price}</td>
                 <th>
-                  <button onClick={()=> handleDelete(item)} className="btn btn-ghost bg-red-700 text-white btn-sm">
-                    <i class="fa-solid fa-trash-can"></i>
+                  <button
+                    onClick={() => handleDelete(item)}
+                    className="btn btn-ghost bg-red-700 text-white btn-sm"
+                  >
+                    <i className="fa-solid fa-trash-can"></i>
                   </button>
                 </th>
               </tr>

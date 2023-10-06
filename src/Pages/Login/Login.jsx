@@ -9,6 +9,7 @@ import {
 } from "react-simple-captcha";
 import { authContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(authContext);
@@ -23,7 +24,7 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    
 
     signIn(email, password).then((result) => {
       const user = result.user;
@@ -109,7 +110,7 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <button
-                  disabled={disabled}
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                 >
@@ -117,12 +118,13 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <p className="text-center mb-10">
+            <p className="text-center">
               Create new Account ?{" "}
               <Link className="font-semibold text-orange-400" to="/signUp">
                 Sign Up
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
