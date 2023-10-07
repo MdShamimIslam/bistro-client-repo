@@ -2,7 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { authContext } from "../Providers/AuthProvider";
-// import useAxiosSecure from "./useAxiosSecure";
+
 
 
 const useCart = () => {
