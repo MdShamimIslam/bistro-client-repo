@@ -2,10 +2,11 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaBook, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
-  const isAdmin = true;
+  const [isAdmin]= useAdmin();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -33,12 +34,12 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link>
-                  <FaUtensils></FaUtensils> Add Items
+                <Link to="/dashboard/addItem">
+                  <FaUtensils></FaUtensils> Add an Item
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/manageItems">
                   <i className="fa-regular fa-credit-card"></i> Manage Items
                 </Link>
               </li>

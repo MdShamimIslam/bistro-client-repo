@@ -7,10 +7,10 @@ const PrivateRoutes = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return <p>Loading.....</p>
+        return <span className="loading loading-spinner loading-lg "></span>
     }
 
-    if(user?.email){
+    if(user){
         return children;
     }
     return <Navigate to='/login' state={{from:location}} replace></Navigate> ;

@@ -1,14 +1,16 @@
 import React from "react";
-import useCart from "../../../hooks/useCart";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import SectionTitle from "../../../Components/SectionTitle";
+import useMenu from "../../../hooks/useMenu";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
-const MyCart = () => {
-  const [cart, refetch] = useCart();
-  const total = cart.reduce((sum, item) => item.price + sum, 0);
+const ManageItems = () => {
+  const [menu, ,refetch] = useMenu();
+  const [axiosSecure] = useAxiosSecure();
 
   const handleDelete = (item) => {
+    
     Swal.fire({
       title: "Are you sure?",
       text: `You want to delete ${item.name}`,
@@ -19,39 +21,28 @@ const MyCart = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${item._id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
+        axiosSecure.delete(`/menu/${item._id}`)
           .then((data) => {
-            if (data.deletedCount > 0) {
+            if(data.data.deletedCount > 0){
               refetch();
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
+            
           });
+      
       }
     });
   };
 
   return (
-    <div className="mt-10 lg:w-full lg:ml-16">
+    <div>
       <Helmet>
-        <title>Bistro-boss || MyCart</title>
+        <title>Bistro-boss || manage items </title>
       </Helmet>
       <SectionTitle
-        heading={"WANNA ADD MORE?"}
-        subHeading={"My Cart"}
+        subHeading="Hurry Up"
+        heading="MANAGE ALL ITEMS"
       ></SectionTitle>
-
-      <div className="mt-12 text-xl font-semibold flex items-center justify-between bg-green-700 p-2 rounded ">
-        <div>
-          <h3>Total items : {cart?.length}</h3>
-        </div>
-        <div>
-          <h4>Total Price : $ {total}</h4>
-        </div>
-        <button className="btn btn-active bg-purple-600 text-white">Pay</button>
-      </div>
       <div className="overflow-x-auto mt-4">
         <table className="table">
           <thead>
@@ -61,11 +52,10 @@ const MyCart = () => {
               <th>Item Name</th>
               <th>Price</th>
               <th>Action</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody className="text-lg">
-            {cart?.map((item, index) => (
+            {menu?.map((item, index) => (
               <tr key={item._id}>
                 <td>{index + 1}</td>
                 <td>
@@ -96,4 +86,4 @@ const MyCart = () => {
   );
 };
 
-export default MyCart;
+export default ManageItems;
