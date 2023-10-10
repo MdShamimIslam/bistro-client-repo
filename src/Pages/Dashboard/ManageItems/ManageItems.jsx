@@ -47,7 +47,7 @@ const ManageItems = () => {
         <table className="table">
           <thead>
             <tr className="text-lg">
-              <th>No</th>
+              <th>#</th>
               <th>Item Image</th>
               <th>Item Name</th>
               <th>Price</th>

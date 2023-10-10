@@ -33,7 +33,26 @@ const AllUsers = () => {
       });
   };
 
-  const handleDelete = (user) => {};
+  const handleDelete = (user) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You want to delete ${user.name}`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/users/${user._id}`).then((data) => {
+          if (data.data.deletedCount > 0) {
+            refetch();
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div className="lg:w-full lg:ml-16 ">

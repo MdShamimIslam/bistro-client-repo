@@ -5,18 +5,18 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
-const img_hoisting_token = import.meta.env.VITE_Image_Upload_Token;
+const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AddItem = () => {
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit,reset} = useForm();
-    const img_hoisting_url = `https://api.imgbb.com/1/upload?key=${img_hoisting_token}`
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
     const formData = new FormData();
     formData.append('image', data.image[0]);
 
-    fetch(img_hoisting_url,{
+    fetch(img_hosting_url,{
       method:'POST',
       body:formData
     })
@@ -53,7 +53,7 @@ const AddItem = () => {
 }
 
   return (
-    <div className="">
+    <div className="mt-4 w-full lg:ml-20 p-4">
       <Helmet>
         <title>Bistro-boss || Add item </title>
       </Helmet>
@@ -75,7 +75,8 @@ const AddItem = () => {
             className="input input-bordered w-full "
           />
         </div>
-        <div className="form-control w-full ">
+       <div className="flex gap-5">
+       <div className="form-control w-full ">
           <label className="label">
             <span className="label-text">Category*</span>
           </label>
@@ -103,6 +104,7 @@ const AddItem = () => {
             className="input input-bordered w-full "
           />
         </div>
+       </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Recipe Details*</span>
