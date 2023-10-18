@@ -71,7 +71,7 @@ const CheckoutForm = ({price}) => {
             console.log(confirmError);
           }
           setProcessing(false);
-          if(paymentIntent.status === 'succeeded'){
+          if(paymentIntent?.status === 'succeeded'){
             setTransactionId(paymentIntent.id);
 
             const payment = {
@@ -81,9 +81,9 @@ const CheckoutForm = ({price}) => {
               quantity : cart.length,
               date : new Date(),
               status : 'service pending',
-              cartItemsId : cart.map(item => item._id),
-              menuItemsId : cart.map(item => item.menuItemId),
-              itemsName : cart.map(item => item.name)
+              cartItemsId : cart.map(item => item?._id),
+              menuItemsId : cart.map(item => item.menuId),
+              itemNames : cart.map(item => item.name)
             }
 
             // save payment data in server side

@@ -30,7 +30,7 @@ const Dashboard = () => {
           {isAdmin ? (
             <>
               <li>
-                <Link>
+                <Link to='/dashboard/adminHome'>
                   <i className="fa-solid fa-house"></i> Admin Home
                 </Link>
               </li>
@@ -45,7 +45,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/manageBooking">
                   <FaBook></FaBook> Manage Bookings
                 </Link>
               </li>
@@ -58,17 +58,17 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
-                <Link>
+                <Link to="/dashboard/userHome">
                   <i className="fa-solid fa-house"></i> User Home
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/reservation">
                   <i className="fa-solid fa-microchip"></i> reservation
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/paymentHistory">
                   <i className="fa-regular fa-credit-card"></i> payment history
                 </Link>
               </li>
@@ -81,12 +81,12 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/addReview">
                   <i className="fa-solid fa-puzzle-piece"></i> add review
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/booking">
                   <i className="fa-solid fa-utensils"></i> my booking
                 </Link>
               </li>
@@ -110,7 +110,7 @@ const Dashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="">
+            <Link to="/dashboard/contact">
               <i className="fa-solid fa-envelope"></i> Contact
             </Link>
           </li>
