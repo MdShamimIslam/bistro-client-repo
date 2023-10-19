@@ -51,7 +51,11 @@ const MyCart = () => {
         <div>
           <h4>Total Price : $ {total}</h4>
         </div>
-        <Link to="/dashboard/payment"><button className="btn btn-active bg-purple-600 text-white">Pay</button></Link>
+        <Link to="/dashboard/payment">
+          <button className="btn btn-active bg-purple-600 text-white">
+            Pay
+          </button>
+        </Link>
       </div>
       <div className="overflow-x-auto mt-4">
         <table className="table">

@@ -18,37 +18,33 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password)
-    .then((result) => {
+    createUser(data.email, data.password).then((result) => {
       const user = result.user;
-      updateUserProfile(data.name, data.photo)
-      
-      .then(() => {
-        const saveUser = {name:data.name, email:data.email}
-        fetch('http://localhost:5000/users',{
-          method:'POST',
-          headers:{
-            'content-type':'application/json'
+      updateUserProfile(data.name, data.photo).then(() => {
+        const saveUser = { name: data.name, email: data.email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-          body:JSON.stringify(saveUser)
+          body: JSON.stringify(saveUser),
         })
-        .then(res => res.json())
-        .then(data => {
-          if(data.insertedId){
-            reset();
-        Swal.fire({
-          title: "User Created Successfully",
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
-          },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
-          },
-        });
-        navigate('/')
-          }
-        })
-        
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                title: "User Created Successfully",
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+              });
+              navigate("/");
+            }
+          });
       });
     });
   };
@@ -99,7 +95,7 @@ const SignUp = () => {
                   <span className="text-red-600">Photo field is required</span>
                 )}
               </div>
-              
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

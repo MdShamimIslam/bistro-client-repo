@@ -66,7 +66,9 @@ const AllUsers = () => {
           subHeading={"How many??"}
         ></SectionTitle>
       </div>
-      <h2 className="text-2xl font-semibold ml-4 lg:ml-0">Total Users : {users.length}</h2>
+      <h2 className="text-2xl font-semibold ml-4 lg:ml-0">
+        Total Users : {users.length}
+      </h2>
       <div className="overflow-x-auto mt-4">
         <table className="table">
           <thead>

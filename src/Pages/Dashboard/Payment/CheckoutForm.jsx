@@ -88,12 +88,7 @@ const CheckoutForm = ({price}) => {
 
             // save payment data in server side
             axiosSecure.post('/payment', payment)
-            .then(data => {
-              console.log(data.data);
-              // if(data.data.insertedId){
-
-              // }
-            })
+            .then(data =>data.data)
 
           }
     }
