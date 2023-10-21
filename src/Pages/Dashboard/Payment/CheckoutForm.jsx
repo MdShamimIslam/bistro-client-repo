@@ -6,7 +6,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { authContext } from "../../../Providers/AuthProvider";
 import useCart from "../../../hooks/useCart";
-// import './CheckoutForm.css';
+
 
 const CheckoutForm = ({price}) => {
 
@@ -112,8 +112,9 @@ const CheckoutForm = ({price}) => {
             },
           }}
         />
+        
         <button className="btn btn-primary btn-sm mt-4" type="submit" 
-        disabled={!stripe || !clientSecret || processing} >
+         disabled={!stripe || !clientSecret || processing} >
           Pay
         </button>
       </form>
