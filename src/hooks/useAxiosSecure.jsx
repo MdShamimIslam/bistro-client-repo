@@ -10,7 +10,7 @@ const useAxiosSecure = () => {
 
   // step-1
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://bistro-boss-restaurant-server-sepia.vercel.app",
   });
 
   // step-2
@@ -29,7 +29,7 @@ const useAxiosSecure = () => {
       async (error) => {
         if (
           (error.response && error.response.status === 401) ||
-          error.response.status === 403
+          error?.response?.status === 403
         ) {
           await logOut();
           navigate("/login");

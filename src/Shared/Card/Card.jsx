@@ -14,7 +14,7 @@ const Card = ({ item }) => {
   const handleAddToCart = () => {
     if (user && user.email) {
       const orderItem = { image, name, price, menuId: _id, email: user.email };
-      fetch("http://localhost:5000/carts", {
+      fetch("https://bistro-boss-restaurant-server-sepia.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

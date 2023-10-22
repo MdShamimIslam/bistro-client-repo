@@ -13,7 +13,7 @@ const SocialLogin = () => {
     googleLogin().then((result) => {
       const user = result.user;
       const saveUser = { name: user.displayName, email: user.email };
-      fetch("http://localhost:5000/users", {
+      fetch("https://bistro-boss-restaurant-server-sepia.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
