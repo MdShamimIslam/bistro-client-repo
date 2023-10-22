@@ -10,11 +10,10 @@ const MenuItem = ({items}) => {
             <div className='flex space-x-5'>
             <img style={{borderRadius:'0px 200px 200px 200px'}} className='w-[100px]' src={image} alt="" />
             <div>
-                
                 <h3 className='text-xl uppercase'>{name}</h3>
                 <p>{recipe}</p>
             </div>
-            <p className='text-orange-400 text-xl'>${price}</p>
+            <p className='text-orange-500 text-xl'>${price}</p>
            </div>
         </div>
        
