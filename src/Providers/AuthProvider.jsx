@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-
+      setLoading(false)
       if (currentUser) {
         axios
           .post("https://bistro-boss-restaurant-server-sepia.vercel.app/jwt", {
@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
           })
           .then((data) => {
             localStorage.setItem("access-token", data.data.token);
-            setLoading(false);
+            // setLoading(false);
           });
       } else {
         localStorage.removeItem("access-token");
